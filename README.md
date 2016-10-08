@@ -14,11 +14,12 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
-
+start spider
 ```
 scrapy crawl doubanMovie
 scrapy crawl doubanAllMovie
 ```
+package
 
 scrapy
 pypiwin32
@@ -48,4 +49,3 @@ make post-receive executable
 ```
 sudo chmod +x filename
 ```
-
