@@ -10,6 +10,7 @@ class ALLMoiveSpider(CrawlSpider):
     tag_url = r"https://movie.douban.com/tag/"
     start_urls = [tag_url + str(x) for x in range(1880, 2016)]
     rules=[
+        Rule(LinkExtractor(allow=(r'https://movie.douban.com/\d+?start=\d+.*'))),
         Rule(LinkExtractor(allow=(r'https://movie.douban.com/subject/\d+')),callback="parse_item"),
     ]
 

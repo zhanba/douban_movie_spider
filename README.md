@@ -7,6 +7,10 @@ virtualenv venv --no-site-packages
 ```
 
 ```
+source venv/bin/activate
+```
+
+```
 pip freeze > requirements.txt
 ```
 
@@ -45,4 +49,44 @@ git --work-tree=dir_of_proj --git-dir=dir_of_git_repo checkout -f
 make post-receive executable
 ```
 sudo chmod +x filename
+```
+
+install scrapy failed
+```
+sudo apt-get build-dep python-lxml
+
+sudo pip install lxml --upgrade
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+
+pip install scrapy
+
+```
+
+###install postgresql and psycopg2
+```
+sudo apt-get install postgresql
+```
+```
+sudo apt-get install python-psycopg2
+```
+```
+sudo apt-get install libpq-dev
+```
+
+```
+pip install psycopg2
+```
+
+### postgresql 
+
+```
+sudo -i -u postgres
+psql
+
+postgre: \q
+
+```
+
+```
+createuser --interactive
 ```
