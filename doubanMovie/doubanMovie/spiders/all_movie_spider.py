@@ -4,12 +4,12 @@ from scrapy.spiders import CrawlSpider,Rule
 from scrapy.linkextractors import LinkExtractor
 from doubanMovie.items import DoubanMovieItem
 
-class MoiveSpider(CrawlSpider):
-    name="doubanMovie"
+class ALLMoiveSpider(CrawlSpider):
+    name="doubanAllMovie"
     allowed_domains=["movie.douban.com"]
-    start_urls=["https://movie.douban.com/top250"]
+    tag_url = r"https://movie.douban.com/tag/"
+    start_urls = [tag_url + str(x) for x in range(1880, 2016)]
     rules=[
-        Rule(LinkExtractor(allow=(r'https://movie.douban.com/top250\?start=\d+.*'))),
         Rule(LinkExtractor(allow=(r'https://movie.douban.com/subject/\d+')),callback="parse_item"),
     ]
 

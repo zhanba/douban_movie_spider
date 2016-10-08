@@ -22,8 +22,8 @@ class DoubanMovieItem(Item):
     running_time = Field() # running time
     alias = Field() # alias
     imdb_link = Field() # imdb link
-    rating_num = Field() # the movie rating num
-    rating_people = Field() # the people num that rating movie
+    rating = Field() # the movie rating
+    rating_num = Field() # the people num that rating movie
     summary = Field() # summary
     tags = Field() # the most used tags for the movie
 

@@ -66,7 +66,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'doubanMovie.pipelines.DoubanMoivePipeline': 300,
+   'doubanMovie.pipeline_pg.PostgresqlPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -89,3 +89,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+POSTGRESQL_HOST = 'localhost'
+POSTGRESQL_PORT = '5432'
+POSTGRESQL_DBNAME = 'douban'
+POSTGRESQL_USER = 'postgres'
+POSTGRESQL_PASSWD = '123456'
