@@ -13,18 +13,15 @@ pip freeze > requirements.txt
 ```
 pip install -r requirements.txt
 ```
+scrapy
+pypiwin32
+psycopg2
 
 start spider
 ```
 scrapy crawl doubanMovie
 scrapy crawl doubanAllMovie
 ```
-package
-
-scrapy
-pypiwin32
-psycopg2
-
 
 ## server 
 
