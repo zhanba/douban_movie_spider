@@ -90,3 +90,30 @@ postgre: \q
 ```
 createuser --interactive
 ```
+
+list database
+```
+select datname from pg_database;
+```
+
+
+list user
+```
+\du
+```
+
+create user
+```
+CREATE user agovil WITH PASSWORD 'Kh@rt0um';
+```
+
+```
+psql -h localhost -d postgres –p 5432
+```
+
+
+### linux cmd
+
+```
+sudo passwd user
+```
