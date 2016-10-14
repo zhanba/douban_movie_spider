@@ -107,13 +107,58 @@ create user
 CREATE user agovil WITH PASSWORD 'Kh@rt0um';
 ```
 
+log into postgres
 ```
-psql -h localhost -d postgres –p 5432
+psql -U username
 ```
+
+
+
+/etc/postgresql/9.1/main/pg_hba.conf
+```
+peer to md5
+sudo service postgresql restart
+```
+
+
+check the database and table
+you should create a linux user, and user it to login to postgres, this user will be the postgres user.
+```
+psql database
+```
+
+```
+\d
+```
+
+execute sql file
+```
+psql -U username -d myDataBase -a -f myInsertFile
+```
+
+start postgres
+
 
 
 ### linux cmd
 
 ```
 sudo passwd user
+```
+
+run in background
+```
+nohup myprogram > foo.out 2> foo.err < /dev/null &
+```
+
+process
+```
+ps
+pkill
+```
+
+run in background
+```
+nohup command1 > /dev/null 2>&1 &
+nohup command2 >> /path/to/command2.log 2>&1 &
 ```
