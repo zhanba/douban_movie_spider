@@ -162,3 +162,12 @@ run in background
 nohup command1 > /dev/null 2>&1 &
 nohup command2 >> /path/to/command2.log 2>&1 &
 ```
+
+
+### screen usage
+```
+screen -S newScreenName
+ctrl + a , d
+screen -ls
+screen -r screenId
+```
