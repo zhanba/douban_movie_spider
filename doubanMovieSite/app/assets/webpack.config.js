@@ -2,6 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+var output = path.join(__dirname, '..');
+var publicDistPath = '/static/js/dist/';
+
 module.exports = {
     entry: [
         'webpack/hot/dev-server',
@@ -9,7 +12,7 @@ module.exports = {
         path.resolve(__dirname, 'src/main.js')
     ],
     output: {
-        path: __dirname + '/dist',
+        path: path.join(output, publicDistPath),
         publicPath: '/',
         filename: './bundle.js'
     },
@@ -19,7 +22,13 @@ module.exports = {
         inline: true,
         progress: true,
         contentBase: './src',
-        port: 3000
+        port: 3000,
+        proxy: {
+          '/api': {
+            target: 'http://localhost:8100',
+            secure: false
+          }
+        }
     },
     devtool: 'source-map',
     module: {
@@ -43,5 +52,5 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new OpenBrowserPlugin({ url: 'http://localhost:3000' })
-    ],
+    ]
 }
