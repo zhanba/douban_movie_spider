@@ -15,7 +15,7 @@ def get_movie(uuid):
 @api.route('/movies/')
 def get_movies():
     movies = Movie.query.filter(text('year<1960'))\
-        .filter(text('running_time>120'))\
+        .filter(text('running_time>90'))\
         .filter(text('rating > 9')).all()
     return jsonify({
         'movies': [movie.to_json() for movie in movies],

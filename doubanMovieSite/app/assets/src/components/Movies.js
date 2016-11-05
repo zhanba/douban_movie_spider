@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
+import styles from './Movies.css';
 
 export class Movies extends Component {
 
     constructor() {
         super();
-        this.state = {
-            movies: {},
-            count: 0
+    }
+
+    static defaultProps = {
+        movies: [],
+        count: 0
+    }
+
+    getMovieGrid(movies) {
+        if (movies !== null && movies !== []) {
+            return movies.map((movie) => (
+                <GridTile
+                    key={movie.cover_url}
+                    title={movie.name}
+                    actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+                >
+                    <img src={movie.cover_url} />
+                </GridTile>
+            ))
         }
-    }
-
-    getMvoies() {
-        const movies_url = '/api/movies';
-        var that = this;
-
-        fetch(movies_url)
-        .then(function(res) {
-            if (res.ok) {
-                res.json().then(function(json) {
-                    console.log(json);
-                    that.setState({
-                        movies: json.movies,
-                        count: json.count
-                    });
-                });
-            }
-        }).catch(function(error) {
-            console.log(error.message);
-        });
-    }
-
-    componentDidMount() {
-        this.getMvoies();
     }
 
     render() {
         return (
-            <div>{this.state.count}</div>
+            <div className={styles.root}>
+                <GridList className={styles.gridList} cols={4}>
+                    {this.getMovieGrid(this.props.movies)}
+                </GridList>
+            </div>
         );
     }
 }

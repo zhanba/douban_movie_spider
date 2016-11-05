@@ -44,8 +44,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
-                // include: path.resolve(__dirname, 'app')
+                loader: 'style-loader!css-loader?modules',
+                include: path.resolve(__dirname, 'src')
             }
         ]
     },
