@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+// var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var output = path.join(__dirname, '..');
 var publicDistPath = '/static/js/dist/';

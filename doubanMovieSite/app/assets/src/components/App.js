@@ -5,7 +5,8 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
-import Movies from './Movies'; 
+import Movies from './Movies';
+import Filter from './Filter';
 import './App.css';
 
 class App extends Component {
@@ -29,14 +30,11 @@ class App extends Component {
     getMovies() {
         const movies_url = '/api/movies';
         const that = this;
-        console.log(this.state.movies);
 
         fetch(movies_url)
         .then(function(res) {
             if (res.ok) {
                 res.json().then(function(json) {
-                    console.log(json);
-                    console.log(that.state.movies);
                     that.setState({
                         movies: json.movies,
                         count: json.count
@@ -44,13 +42,12 @@ class App extends Component {
                 });
             }
         }).catch(function(error) {
-            console.log(error.message);
+            console.error(error.message);
         });
     }
 
     componentDidMount() {
         this.getMovies();
-        console.log(this.state.movies);
     }
 
     render() {
@@ -65,11 +62,12 @@ class App extends Component {
                     <Movies movies={this.state.movies} />
                     <Drawer 
                         docked={false}
-                        width={200}
+                        width={400}
                         open={this.state.open}
                         onRequestChange={(open) => this.setState({open})}>
                         <MenuItem>Menu Item</MenuItem>
                         <MenuItem>Menu Item 2</MenuItem>
+                        <Filter />
                     </Drawer>
                 </div>
             </MuiThemeProvider>

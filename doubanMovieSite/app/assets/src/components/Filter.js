@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Filter extends Component {
+export default class Filter extends Component {
 
     constructor() {
         super();
@@ -15,7 +15,7 @@ export class Filter extends Component {
     render() {
         return (
             <div>
-                
+                Filter
             </div>
         );
     }
