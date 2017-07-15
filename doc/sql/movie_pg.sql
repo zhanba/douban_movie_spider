@@ -1,8 +1,8 @@
 
 /*==============================================================*/
-/* Table: movie                                                 */
+/* Table: movies                                                */
 /*==============================================================*/
-create table movie (
+create table movies (
    uuid                 uuid                 not null,
    update_time          timestamp            null,
    subject_id           VARCHAR(50)          not null,
@@ -13,9 +13,13 @@ create table movie (
    writers              VARCHAR(1000)[]      null,
    actors               VARCHAR(1000)[]      null,
    genres               VARCHAR(1000)[]      null,
+   site                 VARCHAR(1000)        null,
    countries            VARCHAR(1000)[]      null,
    languages            VARCHAR(200)[]       null,
    release_date         VARCHAR(1000)        null,
+   season               INT                  null,
+   episode              INT                  null,
+   episode_time         INT                  null,
    running_time         INT                  null,
    alias                VARCHAR(1000)[]      null,
    imdb_link            VARCHAR(1000)        null,
@@ -23,12 +27,12 @@ create table movie (
    rating_num           int                  null,
    summary              TEXT                 null,
    tags                 VARCHAR(1000)[]      null,
-   constraint PK_MOVIE primary key (uuid)
+   constraint PK_MOVIES primary key (uuid)
 );
 
 /*==============================================================*/
-/* Index: movie_PK                                              */
+/* Index: movies_PK                                              */
 /*==============================================================*/
-create unique index movie_PK on movie (
+create unique index movies_PK on movies (
 uuid
 );
